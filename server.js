@@ -9,6 +9,16 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
+// MYSQL CONNECTION
+const mysql = require("mysql");
+
+var connection = mysql.createPool({
+  host: dbConfig.HOST,
+  user: dbConfig.USER,
+  password: dbConfig.PASSWORD,
+  database: dbConfig.DB,
+});
+
 // parse requests of content-type - application/json
 app.use(express.json());
 
@@ -23,8 +33,6 @@ app.get("/", (req, res) => {
 app.get("/hey", (req, res) => {
   res.json({ message: "Call on me Valerie." });
 });
-
-// require("./app/routes/tutorial.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
