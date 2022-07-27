@@ -8,7 +8,7 @@ const app = express();
 // app.use(cors());
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://thawing-brook-00510.herokuapp.com/"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -43,7 +43,7 @@ app.post("/addPost", (req, res) => {
   // console.log(title + " " + postBody);
 
   connection.query(
-    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES (${title}, ${postBody})`,
+    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES ("hello", "hello")`,
     [],
     (err, result) => {
       if (err) {
