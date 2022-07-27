@@ -11,7 +11,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // THIS IS THE MYSQL CONNECTION
-const db = mysql.createConnection({
+var connection = mysql.createPool({
   HOST: "us-cdbr-east-06.cleardb.net",
   USER: "b4f0d2471a57c3",
   PASSWORD: "328233e9",
