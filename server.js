@@ -8,7 +8,7 @@ const app = express();
 // app.use(cors());
 app.use(
   cors({
-    origin: ["https://thawing-brook-00510.herokuapp.com/"],
+    origin: ["http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
