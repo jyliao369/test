@@ -43,8 +43,8 @@ app.post("/addPost", (req, res) => {
   // console.log(title + " " + postBody);
 
   connection.query(
-    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES (?,?)`,
-    [title, postBody],
+    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES (${title}, ${postBody})`,
+    [],
     (err, result) => {
       if (err) {
         console.log(err);
