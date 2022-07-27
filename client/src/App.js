@@ -28,8 +28,8 @@ function App() {
     Axios.get(`https://thawing-brook-00510.herokuapp.com/`, {}).then(
       (response) => {
         // console.log("hello");
-        console.log(response.data);
-        setList(response.data);
+        // console.log(response.data);
+        setList(response.data.reverse());
       }
     );
     // Axios.get(`http://localhost:3001/`, {}).then(
@@ -39,7 +39,7 @@ function App() {
     //     setList(response.data);
     //   }
     // );
-  }, []);
+  }, [list]);
 
   return (
     <div className="App">
