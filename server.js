@@ -1,11 +1,11 @@
 const express = require("express");
 const cors = require("cors");
-const mysql = require("mysql2");
+const mysql = require("mysql");
 
 const app = express();
 
 var corsOptions = {
-  origin: "https://thawing-brook-00510.herokuapp.com/",
+  origin: "http://localhost:8081",
 };
 
 app.use(cors(corsOptions));
@@ -26,18 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  // db.query(
-  //   `SELECT * FROM heroku_24d76449a5017c1.posts_table`,
-  //   [],
-  //   (err, result) => {
-  //     if (err) {
-  //       res.json({ message: err });
-  //     } else {
-  //       // res.json({ message: "Valerie Call on me." });
-  //       res.json(result);
-  //     }
-  //   }
-  // );
+  res.json({ message: "Valerie Call on me." });
 });
 
 app.get("/hey", (req, res) => {
