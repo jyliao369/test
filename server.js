@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const mysql = require("mysql");
 
 const app = express();
 
@@ -16,8 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // THIS IS FOR MSYQL CONNECTION
-const mysql = require("mysql");
-const db = mysql.createPool({
+const db = mysql.createConnection({
   host: "us-cdbr-east-06.cleardb.net",
   user: "b4f0d2471a57c3",
   password: "328233e9",
