@@ -5,7 +5,7 @@ const connection = require("./models/db");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:3001",
+  origin: "https://thawing-brook-00510.herokuapp.com/",
 };
 
 app.use(cors(corsOptions));
@@ -29,6 +29,7 @@ app.get("/", (req, res) => {
       }
     }
   );
+  // res.json({ message: "Valerie Call on me." });
 });
 
 app.get("/hey", (req, res) => {
@@ -48,7 +49,7 @@ app.get("/hey", (req, res) => {
 });
 
 // set port, listen for requests
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
