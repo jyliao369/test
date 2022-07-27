@@ -10,6 +10,7 @@ function App() {
 
   const submit = (info) => {
     console.log(info.split(","));
+    Axios.post(`https://thawing-brook-00510.herokuapp.com/`);
   };
 
   useEffect(() => {
