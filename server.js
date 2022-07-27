@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const connection = require("./models/db");
 
 const app = express();
 
@@ -17,14 +18,19 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
+  connection.query(
+    `SELECT * FROM heroku_24d76449a5017c1.posts_table;`,
+    [],
+    (err, result) => {
+      res.json(result);
+    }
+  );
   res.json({ message: "Valerie Call on me." });
 });
 
 app.get("/hey", (req, res) => {
   res.json({ message: "Call on me Valerie." });
 });
-
-// require("./app/routes/tutorial.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
