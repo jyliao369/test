@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
   res.json({ message: "Valerie Call on me." });
 });
 
+app.get("/hey", (req, res) => {
+  res.json({ message: "Call on me Valerie." });
+});
+
 // require("./app/routes/tutorial.routes.js")(app);
 
 // set port, listen for requests
