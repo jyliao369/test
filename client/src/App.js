@@ -9,7 +9,7 @@ function App() {
   const [postBody, setPostBody] = useState("");
 
   const submit = (info) => {
-    // console.log(info.split(","));
+    console.log(info.split(","));
     Axios.post(`https://thawing-brook-00510.herokuapp.com/addPost`, {
       title: info.split(",")[0],
       postBody: info.split(",")[1],

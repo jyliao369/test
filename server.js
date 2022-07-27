@@ -6,6 +6,7 @@ const app = express();
 
 // CORS
 // app.use(cors());
+
 // app.use(
 //   cors({
 //     origin: ["http://localhost:3000"],
@@ -13,6 +14,7 @@ const app = express();
 //     credentials: true,
 //   })
 // );
+
 app.use(
   cors({
     origin: "*",
@@ -47,10 +49,10 @@ app.post("/addPost", (req, res) => {
   const title = req.body.title;
   const postBody = req.body.postBody;
 
-  // console.log(title + " " + postBody);
+  console.log(title + " " + postBody);
 
   connection.query(
-    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES (${title}, ${postBody})`,
+    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES ("${title}", "${postBody}")`,
     [],
     (err, result) => {
       if (err) {
