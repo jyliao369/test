@@ -1,20 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const connection = require("./models/db");
 
+const connection = require("./models/db");
 const app = express();
 
 // CORS
-// app.use(cors());
-
-// app.use(
-//   cors({
-//     origin: ["http://localhost:3000"],
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
-
 app.use(
   cors({
     origin: "*",
@@ -25,7 +15,6 @@ app.use(
 
 // parse requests of content-type - application/json
 app.use(express.json());
-
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
@@ -42,7 +31,6 @@ app.get("/", (req, res) => {
       }
     }
   );
-  // res.json({ message: "Valerie Call on me." });
 });
 
 app.post("/addPost", (req, res) => {
