@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const connection = require("./models/db");
+const { connect } = require("http2");
 
 const app = express();
 
@@ -33,7 +34,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/hey", (req, res) => {
-  res.json({ message: "Call on me Valerie." });
+  connection.query(
+    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES ("testing", "testing")`,
+    [],
+    (err, result) => {
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.json(result);
+        }
+      };
+    }
+  );
 });
 
 // set port, listen for requests
