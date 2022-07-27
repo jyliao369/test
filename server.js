@@ -4,11 +4,7 @@ const connection = require("./models/db");
 
 const app = express();
 
-var corsOptions = {
-  origin: "https://thawing-brook-00510.herokuapp.com/",
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(express.json());
