@@ -5,7 +5,7 @@ const mysql = require("mysql2");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081",
+  origin: "https://thawing-brook-00510.herokuapp.com/",
 };
 
 app.use(cors(corsOptions));
