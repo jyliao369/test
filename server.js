@@ -9,21 +9,22 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-// MYSQL CONNECTION
-const mysql = require("mysql");
-
-var connection = mysql.createPool({
-  host: dbConfig.HOST,
-  user: dbConfig.USER,
-  password: dbConfig.PASSWORD,
-  database: dbConfig.DB,
-});
-
 // parse requests of content-type - application/json
 app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+
+// THIS IS FOR MSYQL CONNECTION
+const mysql = require("mysql");
+const db = mysql.createPool({
+  host: "us-cdbr-east-06.cleardb.net",
+  user: "b4f0d2471a57c3",
+  password: "328233e9",
+  db: "heroku_24d76449a5017c1",
+});
+
+module.exports = connection;
 
 // simple route
 app.get("/", (req, res) => {
