@@ -10,10 +10,28 @@ function App() {
 
   const submit = (info) => {
     console.log(info.split(","));
-    Axios.post(`https://thawing-brook-00510.herokuapp.com/`);
+    Axios.post(`https://thawing-brook-00510.herokuapp.com/addPost`, {
+      title: info.split(",")[0],
+      postBody: info.split(",")[1],
+    }).then((response) => {
+      console.log(response);
+    });
+    // Axios.post(`http://localhost:3001/addPost`, {
+    //   title: info.split(",")[0],
+    //   postBody: info.split(",")[1],
+    // }).then((response) => {
+    //   console.log(response);
+    // });
   };
 
   useEffect(() => {
+    // Axios.get(`https://thawing-brook-00510.herokuapp.com/`, {}).then(
+    //   (response) => {
+    //     // console.log("hello");
+    //     console.log(response.data);
+    //     setList(response.data);
+    //   }
+    // );
     Axios.get(`https://thawing-brook-00510.herokuapp.com/`, {}).then(
       (response) => {
         // console.log("hello");

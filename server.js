@@ -5,7 +5,14 @@ const connection = require("./models/db");
 const app = express();
 
 // CORS
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -30,9 +37,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/addPost", (req, res) => {
+  const title = req.body.title;
+  const postBody = req.body.postBody;
+
+  // console.log(title + " " + postBody);
+
   connection.query(
-    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES ("testing", "testing")`,
-    [],
+    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES (?,?)`,
+    [title, postBody],
     (err, result) => {
       (err, result) => {
         if (err) {
