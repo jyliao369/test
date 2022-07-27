@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const connection = require("./models/db");
-const path = require("path");
 
 const app = express();
 
@@ -16,9 +15,6 @@ app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-
-// PATH
-app.use(express.static(path.join(__dirname, "./client/build")));
 
 // simple route
 app.get("/", (req, res) => {
@@ -53,7 +49,7 @@ app.get("/hey", (req, res) => {
 });
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
