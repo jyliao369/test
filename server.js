@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
       }
     }
   );
-  res.json({ message: "Valerie Call on me." });
+  // res.json({ message: "Valerie Call on me." });
 });
 
 app.get("/hey", (req, res) => {
