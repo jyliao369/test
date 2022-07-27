@@ -37,13 +37,13 @@ app.get("/", (req, res) => {
 });
 
 app.post("/addPost", (req, res) => {
-  const title = req.body.title;
-  const postBody = req.body.postBody;
+  // const title = req.body.title;
+  // const postBody = req.body.postBody;
 
   // console.log(title + " " + postBody);
 
   connection.query(
-    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES ("${title}", ${postBody})`,
+    `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES ("test", "hello")`,
     [],
     (err, result) => {
       if (err) {
