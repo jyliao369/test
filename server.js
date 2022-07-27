@@ -4,7 +4,11 @@ const connection = require("./models/db");
 
 const app = express();
 
-app.use(cors());
+var corsOptions = {
+  origin: "http://localhost:3001",
+};
+
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(express.json());
