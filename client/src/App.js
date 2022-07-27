@@ -25,13 +25,6 @@ function App() {
   };
 
   useEffect(() => {
-    // Axios.get(`https://thawing-brook-00510.herokuapp.com/`, {}).then(
-    //   (response) => {
-    //     // console.log("hello");
-    //     console.log(response.data);
-    //     setList(response.data);
-    //   }
-    // );
     Axios.get(`https://thawing-brook-00510.herokuapp.com/`, {}).then(
       (response) => {
         // console.log("hello");
@@ -39,6 +32,13 @@ function App() {
         setList(response.data);
       }
     );
+    // Axios.get(`http://localhost:3001/`, {}).then(
+    //   (response) => {
+    //     // console.log("hello");
+    //     console.log(response.data);
+    //     setList(response.data);
+    //   }
+    // );
   }, []);
 
   return (

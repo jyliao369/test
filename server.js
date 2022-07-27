@@ -46,13 +46,12 @@ app.post("/addPost", (req, res) => {
     `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES (?,?)`,
     [title, postBody],
     (err, result) => {
-      (err, result) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.json(result);
-        }
-      };
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(result);
+        console.log(result);
+      }
     }
   );
 });
