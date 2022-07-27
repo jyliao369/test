@@ -5,14 +5,14 @@ const connection = require("./models/db");
 const app = express();
 
 // CORS
-// app.use(cors());
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000"],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 
 // parse requests of content-type - application/json
 app.use(express.json());
