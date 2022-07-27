@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8081",
 };
 
 app.use(cors(corsOptions));
@@ -14,11 +14,13 @@ app.use(cors(corsOptions));
 app.use(express.json()); /* bodyParser.json() is deprecated */
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true })); /* bodyParser.urlencoded() is deprecated */
+app.use(
+  express.urlencoded({ extended: true })
+); /* bodyParser.urlencoded() is deprecated */
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Valerie Call on me." });
 });
 
 require("./app/routes/tutorial.routes.js")(app);
