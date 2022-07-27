@@ -26,18 +26,18 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  db.query(
-    `SELECT * FROM heroku_24d76449a5017c1.posts_table`,
-    [],
-    (err, result) => {
-      if (err) {
-        res.json({ message: err });
-      } else {
-        // res.json({ message: "Valerie Call on me." });
-        res.json(result);
-      }
-    }
-  );
+  // db.query(
+  //   `SELECT * FROM heroku_24d76449a5017c1.posts_table`,
+  //   [],
+  //   (err, result) => {
+  //     if (err) {
+  //       res.json({ message: err });
+  //     } else {
+  //       // res.json({ message: "Valerie Call on me." });
+  //       res.json(result);
+  //     }
+  //   }
+  // );
 });
 
 app.get("/hey", (req, res) => {
