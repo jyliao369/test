@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const mysql = require("mysql");
 
 const app = express();
 
@@ -9,14 +8,6 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-// THIS IS THE MYSQL CONNECTION
-var connection = mysql.createPool({
-  HOST: "us-cdbr-east-06.cleardb.net",
-  USER: "b4f0d2471a57c3",
-  PASSWORD: "328233e9",
-  DB: "heroku_24d76449a5017c1",
-});
 
 // parse requests of content-type - application/json
 app.use(express.json());
