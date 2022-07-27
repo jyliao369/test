@@ -22,10 +22,14 @@ app.get("/", (req, res) => {
     `SELECT * FROM heroku_24d76449a5017c1.posts_table;`,
     [],
     (err, result) => {
-      res.json(result);
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(result);
+      }
     }
   );
-  res.json({ message: "Valerie Call on me." });
+  // res.json({ message: "Valerie Call on me." });
 });
 
 app.get("/hey", (req, res) => {
