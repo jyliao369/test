@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const mysql = require("mysql");
 
 const app = express();
 
@@ -16,16 +15,6 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// THIS IS FOR MSYQL CONNECTION
-const db = mysql.createConnection({
-  host: "us-cdbr-east-06.cleardb.net",
-  user: "b4f0d2471a57c3",
-  password: "328233e9",
-  db: "heroku_24d76449a5017c1",
-});
-
-module.exports = connection;
-
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Valerie Call on me." });
@@ -34,6 +23,8 @@ app.get("/", (req, res) => {
 app.get("/hey", (req, res) => {
   res.json({ message: "Call on me Valerie." });
 });
+
+// require("./app/routes/tutorial.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
