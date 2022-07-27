@@ -24,6 +24,16 @@ function App() {
     // });
   };
 
+  const deletePost = (postID) => {
+    console.log(postID);
+    Axios.post(
+      `https://thawing-brook-00510.herokuapp.com/deletePost/${postID}`,
+      {}
+    ).then((response) => {
+      console.log(response);
+    });
+  };
+
   useEffect(() => {
     Axios.get(`https://thawing-brook-00510.herokuapp.com/`, {}).then(
       (response) => {
@@ -39,7 +49,7 @@ function App() {
     //     setList(response.data);
     //   }
     // );
-  }, [list]);
+  }, []);
 
   return (
     <div className="App">
@@ -60,6 +70,12 @@ function App() {
           <div key={list.postID}>
             <p>title: {list.title}</p>
             <p>body: {list.postBody}</p>
+            <button
+              value={list.postID}
+              onClick={(e) => deletePost(e.target.value)}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>

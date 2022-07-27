@@ -65,6 +65,22 @@ app.post("/addPost", (req, res) => {
   );
 });
 
+app.delete("/deletePost/:postID", (req, res) => {
+  const postID = req.params.postID;
+
+  connection.query(
+    `DELETE FROM heroku_24d76449a5017c1.posts_table WHERE postID=${postID}`,
+    [],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Post Deleted");
+      }
+    }
+  );
+});
+
 // set port, listen for requests
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
