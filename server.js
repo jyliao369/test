@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
   // res.json({ message: "Valerie Call on me." });
 });
 
-app.get("/hey", (req, res) => {
+app.post("/hey", (req, res) => {
   connection.query(
     `INSERT INTO heroku_24d76449a5017c1.posts_table (title, postBody) VALUES ("testing", "testing")`,
     [],
