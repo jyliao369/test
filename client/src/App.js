@@ -16,6 +16,7 @@ function App() {
     }).then((response) => {
       console.log(response);
     });
+
     // Axios.post(`http://localhost:3001/addPost`, {
     //   title: info.split(",")[0],
     //   postBody: info.split(",")[1],
@@ -25,8 +26,8 @@ function App() {
   };
 
   const deletePost = (postID) => {
-    console.log(postID);
-    Axios.post(
+    // console.log(postID);
+    Axios.delete(
       `https://thawing-brook-00510.herokuapp.com/deletePost/${postID}`,
       {}
     ).then((response) => {
@@ -37,11 +38,10 @@ function App() {
   useEffect(() => {
     Axios.get(`https://thawing-brook-00510.herokuapp.com/`, {}).then(
       (response) => {
-        // console.log("hello");
-        // console.log(response.data);
         setList(response.data.reverse());
       }
     );
+
     // Axios.get(`http://localhost:3001/`, {}).then(
     //   (response) => {
     //     // console.log("hello");
